@@ -126,7 +126,7 @@ class ApiController < ApplicationController
     logger.info res
 
     render :update do |page|  
-        page.replace "result", "<div id='result'>room_id = #{res}</div>"
+        page.replace "result-past", "<div id='result-past'>room_id = #{res}</div>"
      end
 #    conditions = []
 #    @org_name = params[:orgName]
