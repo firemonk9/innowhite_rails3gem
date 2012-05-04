@@ -8,7 +8,8 @@ gem 'rails', '3.0.5'
 gem 'mysql'
 gem "rake", "0.8.7"
 
-gem "innowhite", "1.0.2"
+gem "innowhite_api", "1.1.3"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
