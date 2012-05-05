@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   require 'digest/sha1'
+  require 'innowhite'
  # before_filter :initialize_innowhite
 
   #  ## testing api
@@ -77,10 +78,10 @@ class ApiController < ApplicationController
 
   def create_room
     innowhite = Innowhite.new
-    res = innowhite.create_room(:user => params[:user])
+    res = innowhite.create_room(:user => (params[:user].blank? ? "bainur" : params[:user]))
 
     render :update do |page|
-      page.replace "result", "<div id='result'>room_id = #{res[:room_id]} and address = #{res[:address]}</div>"
+      page.replace "result", "<div id='result'>room_id = #{res["room_id"]} and address = #{res["address"]}</div>"
     end
   end
 
@@ -122,11 +123,11 @@ class ApiController < ApplicationController
   def past_sessions
     require 'pp'
     innowhite = Innowhite.new
-    res = innowhite.past_sessions(:orgName => nil)
+    res = innowhite.past_sessions()
     logger.info res
 
     render :update do |page|  
-        page.replace "result-past", "<div id='result-past'>room_id = #{res}</div>"
+        page.replace "result-past", "<div id='result-past'>#{res}</div>"
      end
 #    conditions = []
 #    @org_name = params[:orgName]
