@@ -1,3 +1,5 @@
+require 'innowhite'
+
 class ApiController < ApplicationController
   require 'digest/sha1'
   require 'innowhite'
