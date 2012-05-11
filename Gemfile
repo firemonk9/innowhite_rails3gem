@@ -8,7 +8,9 @@ gem 'rails', '3.0.5'
 gem 'mysql'
 gem "rake", "0.8.7"
 
-gem "innowhite_api"
+gem "innowhite", :git => "git://github.com/firemonk9/innowhite.git"
+
+gem 'rspec-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

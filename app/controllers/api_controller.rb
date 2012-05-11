@@ -1,8 +1,9 @@
-require 'innowhite'
-
 class ApiController < ApplicationController
   require 'digest/sha1'
-  require 'innowhite'
+  require "innowhite"
+
+  before_filter lambda {@innowhite = Innowhite.new}
+
  # before_filter :initialize_innowhite
 
   #  ## testing api
@@ -79,28 +80,25 @@ class ApiController < ApplicationController
   end
 
   def create_room
-    innowhite = Innowhite.new
-    res = innowhite.create_room(:user => (params[:user].blank? ? "bainur" : params[:user]))
+    res = @innowhite.create_room(:user => (params[:user].blank? ? "bainur" : params[:user]))
 
     render :update do |page|
-      page.replace "result", "<div id='result'>room_id = #{res["room_id"]} and address = #{res["address"]}</div>"
+      page.replace "result", "<div id='result'>room_id = #{res[:data]["room_id"]} and address = #{res[:data]["address"]}</div>"
     end
   end
 
   def get_sessions
-    innowhite = Innowhite.new
-      @res = innowhite.get_sessions
+      @res = @innowhite.get_sessions
       render :update do |page|
-          page.replace "result-active", "<div id='result-active'>#{@res}</div>"
+          page.replace "result-active", "<div id='result-active'>#{@res[:data]}</div>"
         end
     end
 
   def join_room
-    innowhite = Innowhite.new
-    res = innowhite.join_meeting(params[:room_id], params[:user])
+    res = @innowhite.join_meeting(params[:room_id], params[:user])
 
     render :update do |page|
-      page.replace "result-room", "<div id='result-room'>#{res}</div>"
+      page.replace "result-room", "<div id='result-room'>#{res[:data]}</div>"
     end
   end
 
@@ -124,12 +122,11 @@ class ApiController < ApplicationController
 
   def past_sessions
     require 'pp'
-    innowhite = Innowhite.new
-    res = innowhite.past_sessions()
+    res = @innowhite.past_sessions()
     logger.info res
 
     render :update do |page|  
-        page.replace "result-past", "<div id='result-past'>#{res}</div>"
+        page.replace "result-past", "<div id='result-past'>#{res[:data]}</div>"
      end
 #    conditions = []
 #    @org_name = params[:orgName]
@@ -324,6 +321,4 @@ class ApiController < ApplicationController
   def pass_authenticate
     Digest::SHA1.hexdigest("#{params[:orgName]}"+"innowhite"+"#{params[:private]}")
   end
-
-
 end
