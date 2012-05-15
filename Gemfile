@@ -8,7 +8,7 @@ gem 'rails', '3.0.5'
 gem 'mysql'
 gem "rake", "0.8.7"
 
-gem "innowhite", :path => "/home/user/projects/india/innowhite"#:git => "git://github.com/firemonk9/innowhite.git"
+gem "innowhite", :git => "git://github.com/firemonk9/innowhite.git"
 
 gem 'rspec-rails'
 
