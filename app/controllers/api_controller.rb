@@ -24,7 +24,7 @@ class ApiController < ApplicationController
   #        end
   #      end
   #  end
-  #
+
     def get_sessions
       @res = @innowhite.get_sessions
       render :update do |page|
