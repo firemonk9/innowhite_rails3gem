@@ -1,0 +1,2 @@
+1.   Run the tests : rake spec
+2.   to install : bundle install
