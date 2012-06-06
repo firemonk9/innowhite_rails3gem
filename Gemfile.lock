@@ -1,7 +1,8 @@
-PATH
-  remote: /home/user/projects/india/innowhite
+GIT
+  remote: git://github.com/firemonk9/innowhite.git
+  revision: 37f72de61bd0d77787215fae94a798072c1d83ac
   specs:
-    innowhite (1.1.6.1)
+    innowhite (1.1.8)
       nokogiri (~> 1.4.4)
       rest-client (~> 1.6.7)
 
