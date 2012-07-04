@@ -1,5 +1,5 @@
 defaults: &defaults
-  adapter:  mysql
+  adapter: sqlite3 
   username: innotest_api
   password: inno_mysql  
 

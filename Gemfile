@@ -5,10 +5,12 @@ gem 'rails', '3.0.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+gem 'sqlite3'
 gem "rake", "0.8.7"
 
 gem "innowhite", :git => "git://github.com/firemonk9/innowhite.git"
+
+#gem "innowhite_api", "1.1.8"
 
 gem 'rspec-rails'
 
