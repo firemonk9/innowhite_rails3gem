@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/firemonk9/innowhite.git
-  revision: 37f72de61bd0d77787215fae94a798072c1d83ac
+  revision: b07d935a9fe3b9e7f06fc8be30132754b6d1e0ca
   specs:
-    innowhite (1.1.8)
+    innowhite (1.1.8.2)
       nokogiri (~> 1.4.4)
       rest-client (~> 1.6.7)
 
@@ -47,7 +47,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.18)
+    mime-types (1.19)
     mysql (2.8.1)
     nokogiri (1.4.7)
     polyglot (0.3.1)
