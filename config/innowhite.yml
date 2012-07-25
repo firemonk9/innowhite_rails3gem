@@ -1,5 +1,5 @@
 innowhite:
   server_address: http://beta.innowhite.com:80/whiteboard/
-  api_address: http://testinnowhite.com/api/
-  private_key: 123ibsdiiuojsndkakjsdl
-  organization: innowhite
+  api_address: http://innowhite.com/api/
+  private_key: qksdnskdhfksdjhflsjdhf
+  organization: innowhite_test
