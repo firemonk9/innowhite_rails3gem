@@ -1,0 +1,155 @@
+%h1> Creating Room
+= form_tag create_room_path, :remote => true do
+  = label_tag :user_name
+  = text_field_tag :user_name
+  %br
+  = label_tag :meeting_name
+  = text_field_tag :meeting_name
+  %br
+  = submit_tag "submit"
+
+#result-create-room
+%br
+%hl
+
+%h1> Join Room
+= form_tag join_room_path, :remote => true do
+  = label_tag :user_name
+  = text_field_tag :user_name, nil
+  %br
+  = label_tag "Meeting ID"
+  = text_field_tag :meeting_id, nil
+  %br
+  = label_tag :password
+  = text_field_tag :password, nil
+  %br
+  = submit_tag "submit"
+
+#result-join-room
+%br
+%hl
+
+%h1> Active Sessions
+= link_to "Retrieve data", get_sessions_path, :remote => true
+
+#result-get-sessions
+%br
+%hl
+
+
+%h1> Schedule Meeting
+= form_for :meeting, :url => schedule_meeting_path, :html => {:remote => true } do |f|
+  = f.label :full_name
+  = f.text_field :fullName
+  %br
+  = f.label :tags
+  = f.text_field :tags, :placeholder => "ert, asda, sdfs"
+  %br
+  = f.label :start_time
+  = f.time_select :startTime
+  %br
+  = f.label :end_time
+  = f.time_select :endTime
+  %br
+  = f.label :time_zone
+  = f.time_zone_select :timeZone
+  %br
+  = f.label :description
+  = f.text_area :description, :style => "width:200px; height:60px;"
+  %br
+
+  = f.submit "submit"
+
+
+#result-schedule-meeting
+%br
+%hl
+
+%h1> Past Sessions
+= form_for :meeting, :url => past_sessions_path, :html => {:remote => true } do |f|
+  = f.label :full_name
+  = f.text_field :fullName
+  %br
+  = f.label :organization_Name
+  = f.text_field :organizationName
+  %br
+  = f.label :tags
+  = f.text_field :tags, :placeholder => "ert, asda, sdfs"
+  %br
+  = f.submit "submit"
+
+#result-past-sessions
+%br
+%hl
+
+
+%h1> Scheduled Sessions
+= form_for :meeting, :url => get_scheduled_list_path, :html => {:remote => true } do |f|
+  = f.label :full_name
+  = f.text_field :fullName
+  %br
+  = f.label :tags
+  = f.text_field :tags, :placeholder => "ert, asda, sdfs"
+  %br
+  = f.submit "submit"
+
+#result-get-scheduled-list
+%br
+%hl
+
+
+%h1> Cancel Meeting
+= form_for :meeting, :url => cancel_meeting_path, :html => {:remote => true } do |f|
+  = f.label "Meeting ID"
+  = f.text_field :meetingID
+  %br
+  = f.label :password
+  = f.text_field :password, :placeholder => "Allow only admin password"
+  %br
+  = f.submit "submit"
+
+#result-cancel-meeting
+%br
+%hl
+
+
+%h1> Update Schedule
+= form_for :meeting, :url => update_schedule_path, :html => {:remote => true } do |f|
+  = label_tag "Meeting ID"
+  = text_field_tag :meetingID
+  %br
+  = f.label :tags
+  = f.text_field :tags, :placeholder => "ert, asda, sdfs"
+  %br
+  = f.label :start_time
+  = f.time_select :startTime
+  %br
+  = f.label :end_time
+  = f.time_select :endTime
+  %br
+  = f.label :time_zone
+  = f.time_zone_select :timeZone
+  %br
+  = f.label :description
+  = f.text_area :description, :style => "width:200px; height:60px;"
+  %br
+
+  = f.submit "submit"
+
+
+#result-update-schedule
+%br
+%hl
+
+
+
+%h1> Records
+= form_for :meeting, :url => get_recordings_path, :html => {:remote => true } do |f|
+  = f.label "Meeting ID"
+  = f.text_field :meetingID
+  %br
+  = f.submit "submit"
+
+#result-get-recordings
+%br
+%hl

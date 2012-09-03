@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
+gem "haml"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,9 +9,8 @@ gem 'rails', '3.0.5'
 gem 'sqlite3'
 gem "rake", "0.8.7"
 
-gem "innowhite", :git => "git://github.com/firemonk9/innowhite.git"
+gem "innowhite", :git => "git://github.com/firemonk9/innowhite.git", :branch => "BBB"
 
-#gem "innowhite_api", "1.1.8"
 
 gem 'rspec-rails'
 
