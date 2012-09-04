@@ -1,3 +1,3 @@
-api_address: http://localhost:3000/api/ #http://innowhite.com/api/
+api_address: http://testinnowhite.com/api/
 private_key: qksdnskdhfksdjhflsjdhf
 organization: innowhite_test
