@@ -27,7 +27,13 @@ class ApiController < ApplicationController
     end
   end
 
+  def date_prefix_conv(prefix)
+    params[:meeting].update(prefix.to_sym => Time.new(*params[:meeting].select {|k, v| k.start_with?(prefix)}.map(&:last)))
+  end
+
   def schedule_meeting
+    date_prefix_conv("startTime")
+    date_prefix_conv("endTime")
     @res = @innowhite.schedule_meeting(params[:meeting])
     render :update do |page|
       page.replace "result-schedule-meeting", "<div id='result-schedule-meeting'>#{debug(@res)}</div>"
@@ -49,14 +55,16 @@ class ApiController < ApplicationController
   end
 
   def cancel_meeting
-    @res = @innowhite.cancel_meeting(params[:meeting_id], params[:password])
+    @res = @innowhite.cancel_meeting(params[:meeting][:meeting_id], params[:meeting][:password])
     render :update do |page|
       page.replace "result-cancel-meeting", "<div id='result-cancel-meeting'>#{debug(@res)}</div>"
     end
   end
 
   def update_schedule
-    @res = @innowhite.update_schedule(params[:meeting_id], params[:meeting])
+    date_prefix_conv("startTime")
+    date_prefix_conv("endTime")
+    @res = @innowhite.update_schedule(params[:meetingID], params[:meeting])
     render :update do |page|
       page.replace "result-update-schedule", "<div id='result-update-schedule'>#{debug(@res)}</div>"
     end
